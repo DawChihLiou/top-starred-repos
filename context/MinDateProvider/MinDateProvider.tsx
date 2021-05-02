@@ -6,7 +6,7 @@ import { DateTime } from 'luxon'
  */
 const minDate = DateTime.local().minus({ day: 7 }).toISODate()
 /**
- * Today context is a date ISO string based on local timezone.
+ * Min date context is a date ISO string based on local timezone.
  * For example: "2021-01-30"
  */
 export const MinDateContext = createContext<string>(minDate)
@@ -17,7 +17,7 @@ type minDateProviderProps = React.PropsWithChildren<{}>
  * timezone for fetching GitHub repositories.
  *
  * You can use `useSearchMinDate` react hook from `@hooks/useSearchMinDate` in
- * your components to access the today ISO string.
+ * your components to access the ISO date string.
  */
 export default function MinDateProvider({ children }: minDateProviderProps) {
   return (
