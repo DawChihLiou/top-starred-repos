@@ -16,7 +16,6 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
         <title>GitHub Weekly⭐</title>
         <meta
           name="viewport"

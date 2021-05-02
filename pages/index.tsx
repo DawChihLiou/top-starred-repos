@@ -7,6 +7,7 @@ import {
   Box,
   useMediaQuery,
   Theme,
+  Link,
 } from '@material-ui/core'
 import RepoList from '@components/RepoList'
 import { useMemo } from 'react'
@@ -88,6 +89,19 @@ export default function Home() {
         />
       </FilterBar>
       <Box mt={isSmallViewPortUp ? 8 : 7} mb={1}>
+        <Box pt={4} pb={5}>
+          <Typography gutterBottom>
+            Hey 👋 , welcome to <b>Weekly GitHub ⭐️</b>
+          </Typography>
+          <Typography gutterBottom>
+            You will find the most starred repositories that were created in the
+            past week here. Not only browsing, you can interact with the filters
+            on the top and star the repositories. Just hit the ⭐️ to show the
+            creators some love!
+          </Typography>
+          <Typography>Happy exploring!</Typography>
+        </Box>
+
         {isError && (
           <Typography>
             Service is currently unavailable. Please refresh the page or try
@@ -102,6 +116,19 @@ export default function Home() {
             onUpdateStar={starRepo}
           />
         )}
+      </Box>
+      <Box mt={4} mb={6}>
+        <Typography>
+          {`© Created by `}
+          <Link
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/DawChihLiou/top-starred-repos"
+            color="textPrimary"
+          >
+            <b>Daw-Chih Liou</b>
+          </Link>
+        </Typography>
       </Box>
     </Container>
   )
