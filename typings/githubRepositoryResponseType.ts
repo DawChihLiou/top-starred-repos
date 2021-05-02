@@ -35,7 +35,7 @@ export type GitHubRepositoryResponseItemType = {
   size: number
   stargazers_count: number
   watchers_count: number
-  language: string
+  language: string | null
   forks_count: number
   open_issues_count: number
   master_branch: string

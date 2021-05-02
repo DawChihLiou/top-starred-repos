@@ -32,6 +32,10 @@ export default function Home() {
   const { filterState, updateFilterState } = useFilterState()
   const { starredRepoNames, starRepo } = useStar()
 
+  /**
+   * List of displayed repositories. The list is fetched from GitHub open API
+   * and is filtered by the filter settings.
+   */
   const repos = useMemo(() => {
     return data?.items
       .map((item) => ({
@@ -42,7 +46,7 @@ export default function Home() {
         ownerName: item.owner.login,
         ownerAvatarUrl: item.owner.avatar_url,
         ownerLink: item.owner.html_url,
-        language: item.language,
+        language: item.language ?? 'Unspecified',
         createdAt: DateTime.fromISO(item.created_at).toFormat('LLL dd, yyyy'),
       }))
       .filter((item) => {
@@ -59,9 +63,16 @@ export default function Home() {
       })
   }, [data, filterState, starredRepoNames])
 
+  /**
+   * List of language options in the language filter. The list is derived from
+   * GitHub API data and result in a list of unique languages.
+   */
   const languages = useMemo(() => {
     const pickLanguages = flow(
-      map((item: GitHubRepositoryResponseItemType) => item.language),
+      map(
+        (item: GitHubRepositoryResponseItemType) =>
+          item.language ?? 'Unspecified'
+      ),
       concat('All'),
       uniq
     )

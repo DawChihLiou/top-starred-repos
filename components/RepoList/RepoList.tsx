@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       marginBottom: theme.spacing(),
     },
-    minHeight: '100vh',
+    minHeight: '50vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
