@@ -51,10 +51,10 @@ To run Jest in watch mode. Jest will run test files and paths that matches the f
 
 To generate test coverage report, please run `yarn test:ci`.
 
-### `yarn lint`
+#### `yarn lint`
 
 To lint the project against [ESLint](https://eslint.org/).
 
-### `yarn prettier`
+#### `yarn prettier`
 
 To format the project with [Prettier](https://prettier.io/).
